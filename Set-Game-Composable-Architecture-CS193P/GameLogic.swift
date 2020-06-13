@@ -59,7 +59,9 @@ let gameReducer = Reducer<GameState, GameAction, GameEnvironment> { state, actio
           $0.location = .board(index: freeSpace)
         }
       }
-    state.drawPile.removeLast()
+    if !state.drawPile.isEmpty {
+      state.drawPile.removeLast()
+    }
     return .none
 
   case let .select(card):

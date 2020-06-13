@@ -65,6 +65,7 @@ struct GameView: View {
             Spacer()
             Text("Matches: \(viewStore.matched.count)")
           }
+          .minimumScaleFactor(0.1)
         }
         ForEach(viewStore.allCards) { card in
           Button(action: { withAnimation { viewStore.send(.select(card: card) )} }) {
